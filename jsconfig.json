@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "preserve",
+        "jsxImportSource": "vue",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./packages/*"],
+            "docs": ["./docs/*"]
+        }
+    },
+    "include": [
+        "./**/*",
+        "packages/**/*.vue",
+        "docs/**/*.vue"
+    ],
+    "exclude": ["node_modules", "dist"]
+}

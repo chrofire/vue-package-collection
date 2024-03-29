@@ -11,7 +11,9 @@
     "include": [
         "./**/*",
         "packages/**/*.vue",
-        "docs/**/*.vue"
+        "docs/**/*.vue",
+        "docs/auto-imports.d.ts",
+        "docs/components.d.ts"
     ],
     "exclude": ["node_modules", "dist"]
 }

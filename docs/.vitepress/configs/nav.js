@@ -16,7 +16,7 @@ export const nav = [
     },
     {
         text: '工具',
-        link: '/utils/index.md',
+        link: '/utils/doRequest/index.md',
         activeMatch: '/utils/'
     }
 ]

@@ -18,14 +18,16 @@ export default defineConfig({
                 ElementPlusResolver({
                     importStyle: false
                 })
-            ]
+            ],
+            dts: true
         }),
         Components({
             resolvers: [
                 ElementPlusResolver({
                     importStyle: false
                 })
-            ]
+            ],
+            dts: true
         }),
         Inspect()
     ],

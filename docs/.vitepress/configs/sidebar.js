@@ -14,8 +14,11 @@ export const sidebar = {
     ],
     '/utils/': [
         {
-            text: 'Demo',
-            link: '/utils/index.md'
+            text: 'data',
+            collapsed: false,
+            items: [
+                { text: 'doRequest', link: '/utils/doRequest/index.md' }
+            ]
         }
     ]
 }

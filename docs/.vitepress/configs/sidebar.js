@@ -19,6 +19,18 @@ export const sidebar = {
             items: [
                 { text: 'doRequest', link: '/utils/doRequest/index.md' }
             ]
+        },
+        {
+            text: 'tree',
+            collapsed: false,
+            items: [
+                { text: 'createTreeData', link: '/utils/createTreeData/index.md' },
+                { text: 'listToTree', link: '/utils/listToTree/index.md' },
+                { text: 'treeToList', link: '/utils/treeToList/index.md' },
+                { text: 'treeToMap', link: '/utils/treeToMap/index.md' },
+                { text: 'filterTreeNodes', link: '/utils/filterTreeNodes/index.md' },
+                { text: 'findTreeNode', link: '/utils/findTreeNode/index.md' }
+            ]
         }
     ]
 }

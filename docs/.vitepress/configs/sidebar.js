@@ -40,6 +40,15 @@ export const sidebar = {
                 { text: 'randomRgbColor', link: '/utils/randomRgbColor/index.md' },
                 { text: 'randomHexColor', link: '/utils/randomHexColor/index.md' }
             ]
+        },
+        {
+            text: 'time',
+            collapsed: false,
+            items: [
+                { text: 'getYearBetween', link: '/utils/getYearBetween/index.md' },
+                { text: 'getMonthBetween', link: '/utils/getMonthBetween/index.md' },
+                { text: 'getDateBetween', link: '/utils/getDateBetween/index.md' }
+            ]
         }
     ]
 }

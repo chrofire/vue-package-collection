@@ -49,6 +49,15 @@ export const sidebar = {
                 { text: 'getMonthBetween', link: '/utils/getMonthBetween/index.md' },
                 { text: 'getDateBetween', link: '/utils/getDateBetween/index.md' }
             ]
+        },
+        {
+            text: 'promise',
+            collapsed: false,
+            items: [
+                { text: 'createImperativePromise', link: '/utils/createImperativePromise/index.md' },
+                { text: 'createConcurrentTask', link: '/utils/createConcurrentTask/index.md' },
+                { text: 'onlyTakeEffectLastPromise', link: '/utils/onlyTakeEffectLastPromise/index.md' }
+            ]
         }
     ]
 }

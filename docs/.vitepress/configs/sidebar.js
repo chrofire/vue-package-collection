@@ -31,6 +31,15 @@ export const sidebar = {
                 { text: 'filterTreeNodes', link: '/utils/filterTreeNodes/index.md' },
                 { text: 'findTreeNode', link: '/utils/findTreeNode/index.md' }
             ]
+        },
+        {
+            text: 'color',
+            collapsed: false,
+            items: [
+                { text: 'randomRgbaColor', link: '/utils/randomRgbaColor/index.md' },
+                { text: 'randomRgbColor', link: '/utils/randomRgbColor/index.md' },
+                { text: 'randomHexColor', link: '/utils/randomHexColor/index.md' }
+            ]
         }
     ]
 }

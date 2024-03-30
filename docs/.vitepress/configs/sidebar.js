@@ -67,6 +67,15 @@ export const sidebar = {
             ]
         },
         {
+            text: 'blob',
+            collapsed: false,
+            items: [
+                { text: 'downloadBlob', link: '/utils/downloadBlob/index.md' },
+                { text: 'blobToBase64', link: '/utils/blobToBase64/index.md' },
+                { text: 'blobToJson', link: '/utils/blobToJson/index.md' }
+            ]
+        },
+        {
             text: 'other',
             collapsed: false,
             items: [

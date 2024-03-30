@@ -58,6 +58,13 @@ export const sidebar = {
                 { text: 'createConcurrentTask', link: '/utils/createConcurrentTask/index.md' },
                 { text: 'onlyTakeEffectLastPromise', link: '/utils/onlyTakeEffectLastPromise/index.md' }
             ]
+        },
+        {
+            text: 'dom',
+            collapsed: false,
+            items: [
+                { text: 'createEventCleanup', link: '/utils/createEventCleanup/index.md' }
+            ]
         }
     ]
 }

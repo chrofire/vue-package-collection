@@ -65,6 +65,14 @@ export const sidebar = {
             items: [
                 { text: 'createEventCleanup', link: '/utils/createEventCleanup/index.md' }
             ]
+        },
+        {
+            text: 'other',
+            collapsed: false,
+            items: [
+                { text: 'genUUID', link: '/utils/genUUID/index.md' },
+                { text: 'genPlaceholderImage', link: '/utils/genPlaceholderImage/index.md' }
+            ]
         }
     ]
 }

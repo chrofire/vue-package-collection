@@ -7,10 +7,7 @@ export const sidebar = {
         }
     ],
     '/composables/': [
-        {
-            text: 'Demo',
-            link: '/composables/index.md'
-        }
+        { text: 'useData', link: '/composables/useData/index.md' }
     ],
     '/utils/': [
         {

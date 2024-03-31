@@ -11,7 +11,7 @@ export const nav = [
     },
     {
         text: '组合式函数',
-        link: '/composables/index.md',
+        link: '/composables/useData/index.md',
         activeMatch: '/composables/'
     },
     {

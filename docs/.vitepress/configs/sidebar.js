@@ -2,8 +2,11 @@
 export const sidebar = {
     '/components/': [
         {
-            text: 'Demo',
-            link: '/components/index.md'
+            text: 'element-plus',
+            collapsed: false,
+            items: [
+                { text: 'BaseButton 按钮', link: '/components/element-plus/BaseButton/index.md' }
+            ]
         }
     ],
     '/composables/': [

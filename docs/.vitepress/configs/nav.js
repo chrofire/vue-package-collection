@@ -6,7 +6,7 @@ export const nav = [
     },
     {
         text: '组件',
-        link: '/components/index.md',
+        link: '/components/element-plus/BaseButton/index.md',
         activeMatch: '/components/'
     },
     {

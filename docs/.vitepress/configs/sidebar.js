@@ -5,7 +5,8 @@ export const sidebar = {
             text: 'element-plus',
             collapsed: false,
             items: [
-                { text: 'BaseButton 按钮', link: '/components/element-plus/BaseButton/index.md' }
+                { text: 'BaseButton 按钮', link: '/components/element-plus/BaseButton/index.md' },
+                { text: 'BaseCheckboxGroup 多选框组', link: '/components/element-plus/BaseCheckboxGroup/index.md' }
             ]
         }
     ],

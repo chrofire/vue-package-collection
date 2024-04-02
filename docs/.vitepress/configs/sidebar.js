@@ -10,7 +10,8 @@ export const sidebar = {
                 { text: 'BaseRadioGroup 单选框组', link: '/components/element-plus/BaseRadioGroup/index.md' },
                 { text: 'BaseSelect 选择器', link: '/components/element-plus/BaseSelect/index.md' },
                 { text: 'BaseForm 表单', link: '/components/element-plus/BaseForm/index.md' },
-                { text: 'BaseSearchForm 查询表单', link: '/components/element-plus/BaseSearchForm/index.md' }
+                { text: 'BaseSearchForm 查询表单', link: '/components/element-plus/BaseSearchForm/index.md' },
+                { text: 'BasePagination 分页', link: '/components/element-plus/BasePagination/index.md' }
             ]
         }
     ],

@@ -1,9 +1,9 @@
 <template>
     <div>
-        <BasePagination v-bind="info">
+        <BasePagination v-bind="state">
             <div>template</div>
         </BasePagination>
-        <pre>{{ JSON.stringify(info.paginationData, null, 4) }}</pre>
+        <pre>{{ JSON.stringify(state.paginationData, null, 4) }}</pre>
     </div>
 </template>
 
@@ -11,8 +11,8 @@
 import { BasePagination } from '@/components'
 import { reactive } from 'vue'
 
-const info = reactive({
-    ref: value => info.instanceRef = value,
+const state = reactive({
+    ref: value => state.instanceRef = value,
     instanceRef: null,
     paginationData: {
         pageNum: 1,

@@ -1,9 +1,9 @@
 <template>
     <div>
-        <BaseRadioGroup v-bind="info">
+        <BaseRadioGroup v-bind="state">
             <template #label="option">{{ `template-${option.label}` }}</template>
         </BaseRadioGroup>
-        <pre>{{ JSON.stringify(info.modelValue, null, 4) }}</pre>
+        <pre>{{ JSON.stringify(state.modelValue, null, 4) }}</pre>
     </div>
 </template>
 
@@ -11,9 +11,9 @@
 import { BaseRadioGroup } from '@/components'
 import { reactive } from 'vue'
 
-const info = reactive({
+const state = reactive({
     modelValue: '',
-    'onUpdate:modelValue': value => info.modelValue = value,
+    'onUpdate:modelValue': value => state.modelValue = value,
     // optionType: 'button',
     fieldNames: {
         value: 'label'

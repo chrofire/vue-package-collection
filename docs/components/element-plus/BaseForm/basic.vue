@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BaseForm ref="BaseFormRef" v-bind="info">
+        <BaseForm ref="BaseFormRef" v-bind="state">
             <template #field6Slot="{ formItem, formData }">
                 <el-input
                     class="w-100%"
@@ -21,7 +21,7 @@ import { reactive, ref } from 'vue'
 
 const BaseFormRef = ref(null)
 
-const info = reactive({
+const state = reactive({
     labelWidth: '90px',
     rowProps: {},
     formData: {},

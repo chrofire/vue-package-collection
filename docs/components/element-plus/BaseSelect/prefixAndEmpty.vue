@@ -1,10 +1,10 @@
 <template>
     <div>
-        <BaseSelect v-bind="info">
+        <BaseSelect v-bind="state">
             <template #prefix>template prefix</template>
             <template #empty>template empty</template>
         </BaseSelect>
-        <pre>{{ JSON.stringify(info.modelValue, null, 4) }}</pre>
+        <pre>{{ JSON.stringify(state.modelValue, null, 4) }}</pre>
     </div>
 </template>
 
@@ -12,9 +12,9 @@
 import { BaseSelect } from '@/components'
 import { reactive } from 'vue'
 
-const info = reactive({
+const state = reactive({
     modelValue: '',
-    'onUpdate:modelValue': value => info.modelValue = value,
+    'onUpdate:modelValue': value => state.modelValue = value,
     options: [],
     prefixRender: () => {
         return <div>render prefix</div>

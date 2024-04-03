@@ -1,9 +1,9 @@
 <template>
     <div>
-        <BaseSelect v-bind="info">
+        <BaseSelect v-bind="state">
             <template #label="option">{{ `template-${option.label}` }}</template>
         </BaseSelect>
-        <pre>{{ JSON.stringify(info.modelValue, null, 4) }}</pre>
+        <pre>{{ JSON.stringify(state.modelValue, null, 4) }}</pre>
     </div>
 </template>
 
@@ -11,9 +11,9 @@
 import { BaseSelect } from '@/components'
 import { h, reactive } from 'vue'
 
-const info = reactive({
+const state = reactive({
     modelValue: '',
-    'onUpdate:modelValue': value => info.modelValue = value,
+    'onUpdate:modelValue': value => state.modelValue = value,
     options: Array.from({ length: 10 }, (_, i) => {
         const id = i + 1
         if (i === 0) {

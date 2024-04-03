@@ -12,7 +12,8 @@ export const sidebar = {
                 { text: 'BaseForm 表单', link: '/components/element-plus/BaseForm/index.md' },
                 { text: 'BaseSearchForm 查询表单', link: '/components/element-plus/BaseSearchForm/index.md' },
                 { text: 'BasePagination 分页', link: '/components/element-plus/BasePagination/index.md' },
-                { text: 'BaseTable 表格', link: '/components/element-plus/BaseTable/index.md' }
+                { text: 'BaseTable 表格', link: '/components/element-plus/BaseTable/index.md' },
+                { text: 'BaseDialog 对话框', link: '/components/element-plus/BaseDialog/index.md' }
             ]
         }
     ],

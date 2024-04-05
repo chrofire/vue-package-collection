@@ -15,7 +15,8 @@ export const sidebar = {
                 { text: 'BaseTable 表格', link: '/components/element-plus/BaseTable/index.md' },
                 { text: 'BaseDialog 对话框', link: '/components/element-plus/BaseDialog/index.md' },
                 { text: 'BaseCheckTagGroup 标签组', link: '/components/element-plus/BaseCheckTagGroup/index.md' },
-                { text: 'BaseDescriptions 描述列表', link: '/components/element-plus/BaseDescriptions/index.md' }
+                { text: 'BaseDescriptions 描述列表', link: '/components/element-plus/BaseDescriptions/index.md' },
+                { text: 'BaseTabs 标签页', link: '/components/element-plus/BaseTabs/index.md' }
             ]
         }
     ],

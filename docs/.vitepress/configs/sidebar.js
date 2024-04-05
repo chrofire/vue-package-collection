@@ -25,7 +25,8 @@ export const sidebar = {
         { text: 'useCustomDict', link: '/composables/useCustomDict/index.md' },
         { text: 'useRender', link: '/composables/useRender/index.md' },
         { text: 'useLockFn', link: '/composables/useLockFn/index.md' },
-        { text: 'useBaseImageViewer', link: '/composables/useBaseImageViewer/index.md' }
+        { text: 'useBaseImageViewer', link: '/composables/useBaseImageViewer/index.md' },
+        { text: 'useLoading', link: '/composables/useLoading/index.md' }
     ],
     '/utils/': [
         {

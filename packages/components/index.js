@@ -14,3 +14,4 @@ export * from './BaseTabs'
 
 // other
 export * from './BaseRender'
+export * from './NumTo'

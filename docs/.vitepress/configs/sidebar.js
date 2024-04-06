@@ -23,7 +23,8 @@ export const sidebar = {
             text: 'other',
             collapsed: false,
             items: [
-                { text: 'BaseRender 渲染器', link: '/components/other/BaseRender/index.md' }
+                { text: 'BaseRender 渲染器', link: '/components/other/BaseRender/index.md' },
+                { text: 'NumTo 数字滚动', link: '/components/other/NumTo/index.md' }
             ]
         }
     ],

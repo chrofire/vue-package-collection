@@ -11,3 +11,6 @@ export * from './BaseDialog'
 export * from './BaseCheckTagGroup'
 export * from './BaseDescriptions'
 export * from './BaseTabs'
+
+// other
+export * from './BaseRender'

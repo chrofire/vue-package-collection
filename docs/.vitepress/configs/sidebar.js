@@ -18,6 +18,13 @@ export const sidebar = {
                 { text: 'BaseDescriptions 描述列表', link: '/components/element-plus/BaseDescriptions/index.md' },
                 { text: 'BaseTabs 标签页', link: '/components/element-plus/BaseTabs/index.md' }
             ]
+        },
+        {
+            text: 'other',
+            collapsed: false,
+            items: [
+                { text: 'BaseRender 渲染器', link: '/components/other/BaseRender/index.md' }
+            ]
         }
     ],
     '/composables/': [

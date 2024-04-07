@@ -140,8 +140,11 @@ export const useFormDialog = (options = {}) => {
                     await onAfterOk()
                 }
             } catch (error) {
-                // 捕获错误
-                console.log(`[useFormDialog] Error`, error)
+                ElMessage({
+                    type: 'error',
+                    message: error?.data?.message || error?.message || '错误',
+                    grouping: true
+                })
             } finally {
                 // 延迟 修改 按钮 loading, 防止重复提交
                 setTimeout(() => {

@@ -34,7 +34,9 @@ export const sidebar = {
         { text: 'useRender', link: '/composables/useRender/index.md' },
         { text: 'useLockFn', link: '/composables/useLockFn/index.md' },
         { text: 'useBaseImageViewer', link: '/composables/useBaseImageViewer/index.md' },
-        { text: 'useLoading', link: '/composables/useLoading/index.md' }
+        { text: 'useLoading', link: '/composables/useLoading/index.md' },
+        { text: 'useFormDialog', link: '/composables/useFormDialog/index.md' },
+        { text: 'useTableCrud', link: '/composables/useTableCrud/index.md' }
     ],
     '/utils/': [
         {

@@ -24,7 +24,8 @@ export const sidebar = {
             collapsed: false,
             items: [
                 { text: 'BaseRender 渲染器', link: '/components/other/BaseRender/index.md' },
-                { text: 'NumTo 数字滚动', link: '/components/other/NumTo/index.md' }
+                { text: 'NumTo 数字滚动', link: '/components/other/NumTo/index.md' },
+                { text: 'SeamlessScroll 无缝滚动', link: '/components/other/SeamlessScroll/index.md' }
             ]
         }
     ],

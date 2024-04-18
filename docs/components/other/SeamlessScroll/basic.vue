@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="max-w-500px h-300px">
-            <SeamlessScroll :deps="[list]" :step="0.2" :wheelStep="20">
+            <SeamlessScroll :step="0.4" :wheelStep="20">
                 <div class="item" v-for="item in list" :key="item.id">
                     <span>{{ item.id }}</span>
                     <span>{{ item.content }}</span>
@@ -9,7 +9,7 @@
                 </div>
             </SeamlessScroll>
         </div>
-        <button @click="push">push</button>
+        <el-button @click="push">push</el-button>
     </div>
 </template>
 

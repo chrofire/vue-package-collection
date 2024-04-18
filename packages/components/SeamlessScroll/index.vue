@@ -191,6 +191,59 @@ const genRepeatTemplateElVNode = computed(() => {
 
 /** @type {import('vue').HTMLAttributes} */
 const innerElAttrs = {
+    onTouchstart: e => {
+        e.preventDefault()
+        stopScroll()
+
+        const touch = e.changedTouches.item(0)
+        // touch位置 坐标
+        const startX = touch.clientX
+        const startY = touch.clientY
+
+        // 初始偏移量: touch时 内容器元素 的偏移量
+        const startInnerElX = innerElX.value
+        const startInnerElY = innerElY.value
+
+        document.addEventListener('touchmove', touchmove)
+        document.addEventListener('touchend', touchend)
+
+        function touchmove (/** @type {TouchEvent} */ e) {
+            const touch = e.changedTouches.item(0)
+            // 当前 touch位置 相对于 初始偏移量 的偏移
+            const offsetX = touch.clientX - startX
+            const offsetY = touch.clientY - startY
+
+            if (props.direction === 'up' || props.direction === 'down') {
+                let result = startInnerElY + offsetY
+                const offset = result % templateElRect.height
+                if (result > 0) {
+                    result = offset - templateElRect.height
+                    innerElY.value = result
+                    return
+                }
+                result = offset
+                innerElY.value = result
+            }
+
+            if (props.direction === 'left' || props.direction === 'right') {
+                let result = startInnerElX + offsetX
+                const offset = result % templateElRect.width
+                if (result > 0) {
+                    result = offset - templateElRect.width
+                    innerElX.value = result
+                    return
+                }
+                result = offset
+                innerElX.value = result
+            }
+        }
+
+        function touchend (/** @type {TouchEvent} */ e) {
+            document.removeEventListener('touchmove', touchmove)
+            document.removeEventListener('touchend', touchend)
+            startScroll()
+        }
+    },
     onMouseenter: () => {
         if (props.hoverStop) {
             stopScroll()
@@ -229,13 +282,13 @@ const innerElAttrs = {
 
         if (props.direction === 'left' || props.direction === 'right') {
             if (e.deltaY > 0) {
-                // 滚轮向左滚
+                // 滚轮向下滚, dom 向左滚动
                 innerElX.value -= props.wheelStep
                 if (Math.abs(innerElX.value) >= templateElRect.width) {
                     innerElX.value = innerElX.value + templateElRect.width
                 }
             } else {
-                // 滚轮向右滚
+                // 滚轮向上滚, dom 向右滚动
                 innerElX.value += props.wheelStep
                 if (innerElX.value >= 0) {
                     innerElX.value = innerElX.value - templateElRect.width

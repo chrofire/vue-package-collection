@@ -189,6 +189,24 @@ const genRepeatTemplateElVNode = computed(() => {
     return null
 })
 
+/**
+  * 获取最小偏移量
+  * @param {'x' | 'y'} axis 轴
+  * @param {number} value 偏移量
+  */
+const getMinOffset = (axis, value) => {
+    const length = axis === 'x' ? templateElRect.width : templateElRect.height
+    // 最小偏移量
+    let minOffset = value % length
+    // 以 Y 轴为例, minOffset > 0 时 向下偏移, 导致元素上方留白
+    // 需要往上偏移一个模板元素的高度 (减)
+    if (minOffset > 0) {
+        minOffset = minOffset - length
+    }
+    // -模板高度 < minOffset <= 0
+    return minOffset
+}
+
 /** @type {import('vue').HTMLAttributes} */
 const innerElAttrs = {
     onTouchstart: e => {
@@ -214,27 +232,13 @@ const innerElAttrs = {
             const offsetY = touch.clientY - startY
 
             if (props.direction === 'up' || props.direction === 'down') {
-                let result = startInnerElY + offsetY
-                const offset = result % templateElRect.height
-                if (result > 0) {
-                    result = offset - templateElRect.height
-                    innerElY.value = result
-                    return
-                }
-                result = offset
-                innerElY.value = result
+                const offset = startInnerElY + offsetY
+                innerElY.value = getMinOffset('y', offset)
             }
 
             if (props.direction === 'left' || props.direction === 'right') {
-                let result = startInnerElX + offsetX
-                const offset = result % templateElRect.width
-                if (result > 0) {
-                    result = offset - templateElRect.width
-                    innerElX.value = result
-                    return
-                }
-                result = offset
-                innerElX.value = result
+                const offset = startInnerElX + offsetX
+                innerElX.value = getMinOffset('x', offset)
             }
         }
 
@@ -260,40 +264,27 @@ const innerElAttrs = {
         if (!props.wheel) return
 
         if (props.direction === 'up' || props.direction === 'down') {
+            let offset
             if (e.deltaY > 0) {
                 // 滚轮向下滚, dom 向上滚动
-                innerElY.value -= props.wheelStep
-                // 向上滚动 的距离 >= 一个模板元素的高度
-                if (Math.abs(innerElY.value) >= templateElRect.height) {
-                    // 加 一个模板元素的高度
-                    innerElY.value = innerElY.value + templateElRect.height
-                }
+                offset = innerElY.value - props.wheelStep
             } else {
                 // 滚轮向上滚, dom 向下滚动
-                innerElY.value += props.wheelStep
-                // 向下滚动 的距离 >= 0 时 内容器元素上面没有其他内容, 导致留白
-                // 需要 向上滚动 一个模板元素的高度
-                if (innerElY.value >= 0) {
-                    // 减 一个模板元素的高度
-                    innerElY.value = innerElY.value - templateElRect.height
-                }
+                offset = innerElY.value + props.wheelStep
             }
+            innerElY.value = getMinOffset('y', offset)
         }
 
         if (props.direction === 'left' || props.direction === 'right') {
+            let offset
             if (e.deltaY > 0) {
                 // 滚轮向下滚, dom 向左滚动
-                innerElX.value -= props.wheelStep
-                if (Math.abs(innerElX.value) >= templateElRect.width) {
-                    innerElX.value = innerElX.value + templateElRect.width
-                }
+                offset = innerElX.value - props.wheelStep
             } else {
                 // 滚轮向上滚, dom 向右滚动
-                innerElX.value += props.wheelStep
-                if (innerElX.value >= 0) {
-                    innerElX.value = innerElX.value - templateElRect.width
-                }
+                offset = innerElX.value + props.wheelStep
             }
+            innerElX.value = getMinOffset('x', offset)
         }
     }
 }

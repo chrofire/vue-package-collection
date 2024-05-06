@@ -39,7 +39,8 @@ export const sidebar = {
         { text: 'useLoading', link: '/composables/useLoading/index.md' },
         { text: 'useFormDialog', link: '/composables/useFormDialog/index.md' },
         { text: 'useTableCrud', link: '/composables/useTableCrud/index.md' },
-        { text: 'useSlotRef', link: '/composables/useSlotRef/index.md' }
+        { text: 'useSlotRef', link: '/composables/useSlotRef/index.md' },
+        { text: 'useScrollSync', link: '/composables/useScrollSync/index.md' }
     ],
     '/utils/': [
         {

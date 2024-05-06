@@ -26,7 +26,8 @@ export const sidebar = {
                 { text: 'BaseRender 渲染器', link: '/components/other/BaseRender/index.md' },
                 { text: 'NumTo 数字滚动', link: '/components/other/NumTo/index.md' },
                 { text: 'SeamlessScroll 无缝滚动', link: '/components/other/SeamlessScroll/index.md' },
-                { text: 'ScaleWrapper 缩放包装盒', link: '/components/other/ScaleWrapper/index.md' }
+                { text: 'ScaleWrapper 缩放包装盒', link: '/components/other/ScaleWrapper/index.md' },
+                { text: 'GanttChart 甘特图', link: '/components/other/GanttChart/index.md' }
             ]
         }
     ],

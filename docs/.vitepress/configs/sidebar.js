@@ -41,7 +41,8 @@ export const sidebar = {
         { text: 'useFormDialog', link: '/composables/useFormDialog/index.md' },
         { text: 'useTableCrud', link: '/composables/useTableCrud/index.md' },
         { text: 'useSlotRef', link: '/composables/useSlotRef/index.md' },
-        { text: 'useScrollSync', link: '/composables/useScrollSync/index.md' }
+        { text: 'useScrollSync', link: '/composables/useScrollSync/index.md' },
+        { text: 'useMultiSelect', link: '/composables/useMultiSelect/index.md' }
     ],
     '/utils/': [
         {

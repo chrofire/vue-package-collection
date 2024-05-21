@@ -1,8 +1,9 @@
 <template>
     <div class="flex flex-col gap-10px">
-        <NumTo :end="num"></NumTo>
+        <NumTo :end="num" addComma></NumTo>
         <div>
-            <el-button @click="random">random</el-button>
+            <el-button @click="random">随机值</el-button>
+            <el-button @click="num = null">非法值</el-button>
         </div>
     </div>
 </template>

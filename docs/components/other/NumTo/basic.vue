@@ -1,24 +1,26 @@
 <template>
     <div class="flex flex-col gap-10px">
-        <NumTo :end="num" addComma></NumTo>
+        <NumTo start="0.000" :end="num"></NumTo>
+        <NumTo start="0.000" :end="num" addPlusSymbol></NumTo>
         <div>
-            <el-button @click="random">随机值</el-button>
+            <el-button @click="num = +getRandomNum()">随机正值</el-button>
+            <el-button @click="num = -getRandomNum()">随机负值</el-button>
             <el-button @click="num = null">非法值</el-button>
+            <el-button @click="num = '+10000.000'">+10000.000</el-button>
+            <el-button @click="num = '-10000.000'">-10000.000</el-button>
         </div>
     </div>
 </template>
 
 <script lang="jsx" setup>
 import { NumTo } from '@/components'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 const num = ref()
 
-const random = () => {
-    num.value = +(Math.random() * 1000).toFixed(2)
+const getRandomNum = () => {
+    return (Math.random() * 1000).toFixed(2)
 }
-
-onMounted(random)
 </script>
 
 <style lang="scss" scoped>

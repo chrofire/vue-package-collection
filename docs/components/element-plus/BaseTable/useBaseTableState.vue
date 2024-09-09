@@ -1,6 +1,6 @@
 <template>
     <div class="h-300px">
-        <BaseTable ref="BaseTableRef" @register="registerTable" v-bind="tableProps"></BaseTable>
+        <BaseTable ref="baseTableRef" @register="registerTable" v-bind="tableProps"></BaseTable>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { BaseTable, useBaseTableState } from '@/components'
 import { ref } from 'vue'
 
-const BaseTableRef = ref()
+const baseTableRef = ref()
 
 const [registerTable, { componentProps: tableProps }] = useBaseTableState({
     autoHeight: true,

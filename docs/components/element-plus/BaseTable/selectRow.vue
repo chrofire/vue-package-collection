@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="h-300px">
-        <BaseTable ref="BaseTableRef" @register="registerTable" v-bind="tableProps"></BaseTable>
+        <BaseTable ref="baseTableRef" @register="registerTable" v-bind="tableProps"></BaseTable>
     </div>
 </template>
 
@@ -60,7 +60,7 @@
 import { BaseTable, useBaseTableState } from '@/components'
 import { computed, ref } from 'vue'
 
-const BaseTableRef = ref()
+const baseTableRef = ref()
 
 const multipleSelect = ref(false)
 

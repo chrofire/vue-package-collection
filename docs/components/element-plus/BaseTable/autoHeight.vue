@@ -10,7 +10,7 @@
             height: tableProps.autoHeight ? `${sliderVal}px` : undefined
         }"
     >
-        <BaseTable ref="BaseTableRef" @register="registerTable" v-bind="tableProps"></BaseTable>
+        <BaseTable ref="baseTableRef" @register="registerTable" v-bind="tableProps"></BaseTable>
     </div>
 </template>
 
@@ -18,7 +18,7 @@
 import { BaseTable, useBaseTableState } from '@/components'
 import { ref } from 'vue'
 
-const BaseTableRef = ref()
+const baseTableRef = ref()
 
 const sliderVal = ref(200)
 

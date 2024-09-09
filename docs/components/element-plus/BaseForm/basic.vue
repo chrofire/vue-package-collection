@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BaseForm ref="BaseFormRef" v-bind="state">
+        <BaseForm ref="baseFormRef" v-bind="state">
             <template #field6Slot="{ formItem, formData }">
                 <el-input
                     class="w-100%"
@@ -8,9 +8,9 @@
                 ></el-input>
             </template>
         </BaseForm>
-        <el-button @click="() => BaseFormRef.validate()">校验</el-button>
-        <el-button @click="() => BaseFormRef.clearValidate()">清除校验</el-button>
-        <el-button @click="() => BaseFormRef.resetFields()">重置表单</el-button>
+        <el-button @click="() => baseFormRef.validate()">校验</el-button>
+        <el-button @click="() => baseFormRef.clearValidate()">清除校验</el-button>
+        <el-button @click="() => baseFormRef.resetFields()">重置表单</el-button>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ import { BaseForm } from '@/components'
 import { ElInputNumber } from 'element-plus'
 import { reactive, ref } from 'vue'
 
-const BaseFormRef = ref(null)
+const baseFormRef = ref(null)
 
 const state = reactive({
     labelWidth: '90px',

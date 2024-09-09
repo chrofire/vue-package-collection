@@ -1,6 +1,6 @@
 <template>
     <div class="h-300px">
-        <BaseTable ref="BaseTableRef" v-bind="state">
+        <BaseTable ref="baseTableRef" v-bind="state">
             <template #field2Slot="{ column, row }">{{ `template-${row[column.property]}` }}</template>
         </BaseTable>
     </div>
@@ -10,7 +10,7 @@
 import { BaseTable } from '@/components'
 import { reactive, ref } from 'vue'
 
-const BaseTableRef = ref(null)
+const baseTableRef = ref(null)
 
 const state = reactive({
     autoHeight: true,

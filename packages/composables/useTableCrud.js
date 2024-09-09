@@ -22,7 +22,7 @@ export const useTableCrud = (options = {}) => {
     } = options
 
     // BaseTable实例 ref
-    const BaseTableRef = ref(null)
+    const baseTableRef = ref(null)
 
     // 调用 listApi loading 状态
     const loading = ref(false)
@@ -125,7 +125,7 @@ export const useTableCrud = (options = {}) => {
     }
 
     return {
-        BaseTableRef,
+        baseTableRef,
         loading,
         paginationData,
         tableData,

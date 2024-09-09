@@ -44,7 +44,7 @@ export const useFormDialog = (options = {}) => {
     } = options
 
     // BaseForm实例 ref
-    const BaseFormRef = ref(null)
+    const baseFormRef = ref(null)
 
     // 操作状态 add | update | view | custom
     const opState = ref('')
@@ -84,7 +84,7 @@ export const useFormDialog = (options = {}) => {
             // 默认 表单弹窗 确认逻辑
 
             // 校验表单
-            const valid = await unref(BaseFormRef).validate()
+            const valid = await unref(baseFormRef).validate()
             if (!valid) return
 
             // 提交的表单数据
@@ -224,7 +224,7 @@ export const useFormDialog = (options = {}) => {
             await nextTick()
 
             // 重置表单数据
-            unref(BaseFormRef).formRef.resetFields()
+            unref(baseFormRef).formRef.resetFields()
             // 默认表单数据
             const defaultFormData = toValue(formProps.defaultFormData) || {}
 
@@ -288,7 +288,7 @@ export const useFormDialog = (options = {}) => {
             headerLabel.value = ''
         }, FORM_DIALOG_CLOSE_DELAY_TIME)
         // 重置表单
-        unref(BaseFormRef).formRef.resetFields()
+        unref(baseFormRef).formRef.resetFields()
         const defaultFormData = toValue(formProps.defaultFormData) || {}
         formProps.formData = {
             ...defaultFormData
@@ -297,7 +297,7 @@ export const useFormDialog = (options = {}) => {
 
     return {
         /** BaseForm实例 ref */
-        BaseFormRef,
+        baseFormRef,
         /** 操作状态 */
         opState,
         /** 弹窗 props */

@@ -1,6 +1,6 @@
 <template>
     <BaseDialog v-bind="dialogProps">
-        <BaseForm ref="BaseFormRef" v-bind="formProps"></BaseForm>
+        <BaseForm ref="baseFormRef" v-bind="formProps"></BaseForm>
     </BaseDialog>
 </template>
 
@@ -45,7 +45,7 @@ const formProps = reactive({
     defaultFormData: () => ({})
 })
 
-const { BaseFormRef, dialogProps, toggleDialog, openDialog } = useFormDialog({
+const { baseFormRef, dialogProps, toggleDialog, openDialog } = useFormDialog({
     api: {
         add: async row => {
             await promiseTimeout(500)

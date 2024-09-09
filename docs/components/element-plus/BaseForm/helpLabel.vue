@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BaseForm ref="BaseFormRef" v-bind="state"></BaseForm>
+        <BaseForm ref="baseFormRef" v-bind="state"></BaseForm>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { BaseForm } from '@/components'
 import { reactive, ref } from 'vue'
 
-const BaseFormRef = ref(null)
+const baseFormRef = ref(null)
 
 const state = reactive({
     labelWidth: '90px',

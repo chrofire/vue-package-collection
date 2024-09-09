@@ -14,7 +14,7 @@
         </div>
         <div class="h-300px">
             <BaseTable
-                ref="BaseTableRef"
+                ref="baseTableRef"
                 v-bind="tableProps"
                 v-loading="loading"
                 :data="tableData"
@@ -109,7 +109,7 @@ const searchParams = computed(() => {
 })
 
 const {
-    BaseTableRef,
+    baseTableRef,
     paginationData,
     tableData,
     resetTableData,

@@ -16,7 +16,7 @@ export type UseFormDialogOpts = {
     /** 完全自定义 onOk */
     customOnOk?: () => unknown,
     /** 转换提交的表单数据 */
-    transformSubmitFormData?: (formData: Record<string, unknown>) => Record<string, unknown>,
+    transformSubmitFormData?: (opState: string, formData: Record<string, unknown>) => Record<string, unknown>,
     /** 确认前 */
     onBeforeOk?: (opState: string, formData: Record<string, unknown>) => boolean | undefined,
     /** 确认后 */

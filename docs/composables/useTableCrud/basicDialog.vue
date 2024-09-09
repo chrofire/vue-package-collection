@@ -59,7 +59,7 @@ const { BaseFormRef, dialogProps, toggleDialog, openDialog } = useFormDialog({
     },
     headerRenderWrapper: ({ headerLabel }) => `${headerLabel}`,
     formProps,
-    transformSubmitFormData: formData => formData,
+    transformSubmitFormData: (opState, formData) => formData,
     mergeDialogProps: {
         width: 600
     },

@@ -94,7 +94,7 @@ export const useFormDialog = (options = {}) => {
 
             // 转换提交的表单数据
             if (isFunction(transformSubmitFormData)) {
-                submitFormData = await transformSubmitFormData(submitFormData)
+                submitFormData = await transformSubmitFormData(opState.value, submitFormData)
             }
 
             // 确认前
@@ -157,6 +157,16 @@ export const useFormDialog = (options = {}) => {
             // 完全自定义 onCancel
             if (isFunction(customOnCancel)) {
                 return await customOnCancel()
+            }
+
+            // 提交的表单数据
+            let submitFormData = {
+                ...formProps.formData
+            }
+
+            // 转换提交的表单数据
+            if (isFunction(transformSubmitFormData)) {
+                submitFormData = await transformSubmitFormData(submitFormData)
             }
 
             // 取消前

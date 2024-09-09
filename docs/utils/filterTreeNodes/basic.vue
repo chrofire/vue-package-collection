@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-10px">
         <div class="flex">
-            <el-button @click="result = filterTreeNodes(source, ['1-1'])">过滤</el-button>
+            <el-button @click="result = filterTreeNodes(source, node => ['1-1'].includes(node.id))">过滤</el-button>
             <el-button @click="result = void 0">重置</el-button>
         </div>
         <pre>source: {{ JSON.stringify(source, null, 4) }}</pre>

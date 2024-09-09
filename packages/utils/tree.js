@@ -163,34 +163,36 @@ export const treeToMap = (tree, options = {}) => {
 }
 
 /**
-* 过滤掉树指定节点及其子节点
-* @param {unknown[]} tree 树
-* @param {unknown[]} idList 需要过滤掉的节点id数组
-* @param {{
-*   idField?: boolean,
+ * 根据条件过滤掉树节点及其子节点
+ * @param {unknown[]} tree 树
+ * @param {(node: Record<string, unknown>) => boolean} condition 条件
+ * @param {{
 *   childrenField?: string
 * }} options 选项
 * @returns {unknown[]}
 * @example
-const result = filterTreeNodes([])
+const result = filterTreeNodes([], () => false)
 */
-export const filterTreeNodes = (tree, idList = [], options = {}) => {
-    const { idField = `id`, childrenField = `children` } = options
+export const filterTreeNodes = (tree, condition = node => false, options = {}) => {
+    const { childrenField = `children` } = options
 
-    const list = tree.map(node => {
-        if (idList.includes(node[idField])) {
-            return null
-        }
+    const list = []
 
-        if (!node[childrenField]) return node
+    tree.forEach(node => {
+        if (!condition(node)) {
+            const newNode = { ...node }
 
-        return {
-            ...node,
-            [childrenField]: filterTreeNodes(node[childrenField], idList, options)
+            const children = newNode[childrenField]
+
+            if (Array.isArray(children) && children.length) {
+                newNode[childrenField] = filterTreeNodes(children, condition, options)
+            }
+
+            list.push(newNode)
         }
     })
 
-    return list.filter(Boolean)
+    return list
 }
 
 /**

@@ -49,7 +49,8 @@ export const sidebar = {
             text: 'data',
             collapsed: false,
             items: [
-                { text: 'doRequest', link: '/utils/doRequest/index.md' }
+                { text: 'doRequest', link: '/utils/doRequest/index.md' },
+                { text: 'createDict', link: '/utils/createDict/index.md' }
             ]
         },
         {

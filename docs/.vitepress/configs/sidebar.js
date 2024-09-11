@@ -109,6 +109,13 @@ export const sidebar = {
             ]
         },
         {
+            text: 'file',
+            collapsed: false,
+            items: [
+                { text: 'openFilePicker', link: '/utils/openFilePicker/index.md' }
+            ]
+        },
+        {
             text: 'other',
             collapsed: false,
             items: [

@@ -1,3 +1,4 @@
+import { createDict } from '@/utils/data'
 import { cloneDeep } from 'lodash-es'
 import { reactive, ref, toRefs, toValue } from 'vue'
 
@@ -46,16 +47,20 @@ export const useCustomDict = options => {
     const {
         fetchFn = async () => {},
         params = {},
-        labelFieldKey = 'label',
-        labelField = 'label',
-        valueFieldKey = 'value',
-        valueField = 'value',
         transformResultFn,
-        immediate = true
+        immediate = true,
+
+        fromLabel = 'label',
+        fromValue = 'value',
+        fromChildren = 'children',
+        toLabel = 'label',
+        toValue: _toValue = 'value',
+        toChildren = 'children',
+        listType = createDict.ListType.LIST
     } = options || {}
 
     /**
-     * @type {{ list: unknown[], map: Record<string, unknown> }}
+     * @type {import('vue').UnwrapNestedRefs<{ list: unknown[], map: Record<string, unknown> }>}
      */
     const state = reactive({
         list: [],
@@ -63,38 +68,33 @@ export const useCustomDict = options => {
     })
 
     /** 刷新 */
-    const refresh = () => {
-        return fetchFn(toValue(params))
-            .then((result = []) => {
-                // 转换结果
-                if (typeof transformResultFn === 'function') {
-                    transformResultFn({ result, state })
-                    return
-                }
+    const refresh = async () => {
+        try {
+            const result = (await fetchFn(toValue(params))) || []
 
-                const map = {}
+            // 自定义转换结果
+            if (typeof transformResultFn === 'function') {
+                transformResultFn({ result, state })
+                return
+            }
 
-                const list = result.map(item => {
-                    const label = item[labelField]
-                    const value = item[valueField]
-                    const result = {
-                        ...item,
-                        // 覆盖
-                        [labelFieldKey]: label,
-                        [valueFieldKey]: value
-                    }
-                    map[value] = result
-                    return result
-                })
-
-                Object.assign(state, {
-                    map,
-                    list
-                })
+            const { list, map } = createDict(result, {
+                fromLabel,
+                fromValue,
+                fromChildren,
+                toLabel,
+                toValue: _toValue,
+                toChildren,
+                listType
             })
-            .catch(error => {
-                // reset()
+
+            Object.assign(state, {
+                list,
+                map
             })
+        } catch (error) {
+            reset()
+        }
     }
 
     /** 重置 */

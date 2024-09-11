@@ -18,7 +18,13 @@
 // 创建 长度为 5, 深度为 2, children最大长度为 3 的树形数据
 const data = createTreeData(5, 2, 3)
 */
-export const createTreeData = (arrayLength, maxDeep, maxChildrenLength, key = 'node', _deep = 1) => {
+export const createTreeData = (
+    arrayLength,
+    maxDeep,
+    maxChildrenLength,
+    key = 'node',
+    _deep = 1
+) => {
     let id = 0
     return Array.from({ length: arrayLength }).map(() => {
         // children数组长度
@@ -38,7 +44,7 @@ export const createTreeData = (arrayLength, maxDeep, maxChildrenLength, key = 'n
 
 /**
 * 数组 转 树
-* @param {unknown[]} list 数组
+* @param {Record<string, unknown>[]} list 数组
 * @param {{
 *   idField?: string,
 *   parentIdField?: string,
@@ -88,8 +94,9 @@ export const listToTree = (list, options = {}) => {
 
 /**
 * 树 转 数组
-* @param {unknown[]} tree 树
+* @param {Record<string, unknown>[]} tree 树
 * @param {{
+*   idField?: string,
 *   childrenField?: string,
 *   fullResult?: boolean
 * }} options 选项
@@ -97,24 +104,29 @@ export const listToTree = (list, options = {}) => {
 const result = treeToList([], { fullResult: true })
 */
 export const treeToList = (tree, options = {}) => {
-    const { childrenField = `children`, fullResult = false } = options
+    const { idField = `id`, childrenField = `children`, fullResult = false } = options
 
     const list = []
+    const map = {}
+    const _tree = []
 
-    function recursion (data) {
+    function recursion (data, level = 1) {
         data.forEach(node => {
+            const children = node[childrenField]
+
             node = { ...node }
+
+            map[node[idField]] = node
+
+            if (level === 1) {
+                _tree.push(node)
+            }
 
             list.push(node)
 
-            const children = node[childrenField]
-
             if (Array.isArray(children)) {
-                recursion(children)
+                recursion(children, level + 1)
             }
-
-            // 删除 children 字段
-            delete node[childrenField]
         })
     }
 
@@ -123,7 +135,8 @@ export const treeToList = (tree, options = {}) => {
     if (fullResult) {
         return {
             list,
-            tree
+            map,
+            tree: _tree
         }
     }
 
@@ -163,10 +176,10 @@ export const treeToMap = (tree, options = {}) => {
 }
 
 /**
- * 根据条件过滤掉树节点及其子节点
- * @param {unknown[]} tree 树
- * @param {(node: Record<string, unknown>) => boolean} condition 条件
- * @param {{
+* 根据条件过滤掉树节点及其子节点
+* @param {unknown[]} tree 树
+* @param {(node: Record<string, unknown>) => boolean} condition 条件
+* @param {{
 *   childrenField?: string
 * }} options 选项
 * @returns {unknown[]}

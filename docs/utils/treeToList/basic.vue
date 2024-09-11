@@ -13,7 +13,7 @@
 import { treeToList } from '@/utils/tree'
 import { ref } from 'vue'
 
-const source = ref([
+const source = [
     {
         id: '1',
         label: '1',
@@ -29,7 +29,7 @@ const source = ref([
         id: '2',
         label: '2'
     }
-])
+]
 
 const result = ref(void 0)
 </script>
